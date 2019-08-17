@@ -1,4 +1,3 @@
-
 output "bastion_autoscaling_group_ids" {
   value = ["${aws_autoscaling_group.bastions-kubernetesfarrukh-com.id}"]
 }
