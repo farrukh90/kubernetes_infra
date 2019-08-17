@@ -581,7 +581,7 @@ resource "aws_key_pair" "kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54
 resource "aws_launch_configuration" "bastions-kubernetesfarrukh-com" {
   name_prefix                 = "bastions.kubernetesfarrukh.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "m5.large"
+  instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54e6d5298327.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.bastions-kubernetesfarrukh-com.id}"
   security_groups             = ["${aws_security_group.bastion-kubernetesfarrukh-com.id}"]
@@ -603,7 +603,7 @@ resource "aws_launch_configuration" "bastions-kubernetesfarrukh-com" {
 resource "aws_launch_configuration" "master-us-west-2a-masters-kubernetesfarrukh-com" {
   name_prefix                 = "master-us-west-2a.masters.kubernetesfarrukh.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "m5.large"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54e6d5298327.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetesfarrukh-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetesfarrukh-com.id}"]
@@ -626,7 +626,7 @@ resource "aws_launch_configuration" "master-us-west-2a-masters-kubernetesfarrukh
 resource "aws_launch_configuration" "master-us-west-2b-masters-kubernetesfarrukh-com" {
   name_prefix                 = "master-us-west-2b.masters.kubernetesfarrukh.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "m5.large"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54e6d5298327.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetesfarrukh-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetesfarrukh-com.id}"]
@@ -649,7 +649,7 @@ resource "aws_launch_configuration" "master-us-west-2b-masters-kubernetesfarrukh
 resource "aws_launch_configuration" "master-us-west-2c-masters-kubernetesfarrukh-com" {
   name_prefix                 = "master-us-west-2c.masters.kubernetesfarrukh.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "m5.large"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54e6d5298327.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetesfarrukh-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetesfarrukh-com.id}"]
@@ -672,7 +672,7 @@ resource "aws_launch_configuration" "master-us-west-2c-masters-kubernetesfarrukh
 resource "aws_launch_configuration" "nodes-kubernetesfarrukh-com" {
   name_prefix                 = "nodes.kubernetesfarrukh.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "m5.large"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetesfarrukh-com-c6508367f9b042389c3a54e6d5298327.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.nodes-kubernetesfarrukh-com.id}"
   security_groups             = ["${aws_security_group.nodes-kubernetesfarrukh-com.id}"]
@@ -759,7 +759,7 @@ resource "aws_route53_record" "api-kubernetesfarrukh-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z2V9IDX1J1KBVQ"
+  zone_id = "/hostedzone/Z71VIT10X6AE4"
 }
 
 resource "aws_route53_record" "bastion-kubernetesfarrukh-com" {
@@ -772,11 +772,11 @@ resource "aws_route53_record" "bastion-kubernetesfarrukh-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z2V9IDX1J1KBVQ"
+  zone_id = "/hostedzone/Z71VIT10X6AE4"
 }
 
-resource "aws_route53_zone_association" "Z2V9IDX1J1KBVQ" {
-  zone_id = "/hostedzone/Z2V9IDX1J1KBVQ"
+resource "aws_route53_zone_association" "Z71VIT10X6AE4" {
+  zone_id = "/hostedzone/Z71VIT10X6AE4"
   vpc_id  = "${aws_vpc.kubernetesfarrukh-com.id}"
 }
 
